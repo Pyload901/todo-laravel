@@ -10,6 +10,7 @@ class TodoService {
     }
 
     public function create(array $data) {
+        $data['user_id'] = auth()->id();
         $this->todoRepository->create($data);
     }
     public function getAll(): Collection {
